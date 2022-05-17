@@ -28,4 +28,29 @@ class StudentRepositoryTests(
             throw NoSuchElementException("학생정보가 존재하지 않습니다")
         }
     }
+
+    @Test
+    fun 학생이메일_Update() {
+        val student: Student = Student(1, "hozumi", "hozumi@gmail.com")
+        studentRepository.save(student)
+        println("수정 전 이메일 주소 : ${student.studentEmail}")
+        student.updateEmail("hozumi@naver.com")
+        // studentRepository
+    }
+
+    @Test
+    fun 학생정보_Delete() {
+        val student: Student = Student(1, "hozumi", "hozumi@gmail.com")
+        studentRepository.save(student)
+        studentRepository.delete(student)
+    }
+
+    @Test
+    fun 학생정보_Update() {
+        val student: Student = Student(1, "hozumi", "hozumi@gmail.com")
+        println("수정 전 이메일 : ${student.studentEmail}")
+        student.updateEmail("hozumni@naver.com")
+        println("수정 후 이메일 : ${student.studentEmail}")
+    }
+
 }
